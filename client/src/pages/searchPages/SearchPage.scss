@@ -1,0 +1,171 @@
+.container-search-result {
+  display: flex;
+
+  .search-filter {
+    flex: 1;
+    margin-right: 20px;
+
+    h1 {
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .search-filter-items {
+      margin: 20px 0 40px 0;
+      font-size: 18px;
+      position: relative;
+
+      button {
+        width: 100%;
+        height: 32px;
+        background-color: rgb(238, 238, 158);
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-bottom: 1px solid #ccc;
+        bottom: -15%;
+        width: 100%;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .search-filter-detail {
+        display: flex;
+        margin: 10px 0;
+
+        span {
+          margin-left: 10px;
+        }
+
+        .filter__inputs {
+          width: 100%;
+          margin: 1.25rem 0 0.625rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          input {
+            width: 5rem;
+            height: 40px;
+          }
+
+          .filter__range-line {
+            flex: 1;
+            height: 1px;
+            width: 10px;
+            background: #bdbdbd;
+            margin: 0 0.625rem;
+          }
+        }
+      }
+    }
+  }
+
+  .search-result-items {
+    flex: 5;
+
+    .search-result-name {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      h2 {
+        margin: 0 10px;
+        width: 450px;
+        font-size: 22px;
+      }
+
+      span {}
+    }
+
+    .search-selection-config {
+      //   height: 50px;
+      padding: 10px;
+      background-color: beige;
+      margin: 10px 0;
+      display: flex;
+
+      span {
+        width: 95px;
+        margin: 0 25px;
+      }
+
+      button {
+        width: 100px;
+        height: 34px;
+        margin: 0 10px;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button.active {
+        background-color: red;
+        border: none;
+        color: #fff;
+      }
+
+      .btn-search-solds {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        // justify-content: space-around;
+        i {
+          margin-left: 30px;
+        }
+
+        ul.box_price-sort {
+          position: absolute;
+          left: 0;
+          top: 36px;
+          background: white;
+          z-index: 100;
+          width: inherit;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+          transform: scaleY(0);
+
+          li.prices_asc,
+          li.prices_desc {
+            padding: 10px 25px;
+            text-align: left;
+          }
+
+          li:hover {
+            background-color: beige;
+          }
+        }
+      }
+      .btn-search-solds:hover {
+        ul.box_price-sort {
+          transform: scaleY(1);
+        }
+      }
+    }
+
+    .container-result-items {
+      margin: 0 -10px;
+      display: flex;
+    }
+  }
+}

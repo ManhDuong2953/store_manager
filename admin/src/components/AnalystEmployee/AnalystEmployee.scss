@@ -1,0 +1,29 @@
+.container-menu-employee {
+    display: flex;
+    ul {
+        display: flex;
+        li {
+            padding: 15px 30px;
+            border-radius: 5px;
+            display: flex;
+            margin:0 0 0 15px;
+            color: #fff;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+            background-image: linear-gradient(195deg, #42424a, #191919);
+            p {
+                margin-left: 10px;
+            }
+            
+        }
+        .color-menu-pink {
+            background-image: linear-gradient(195deg, #ec407a, #d81b60);
+            
+        }
+        .color-menu-green {
+            background-image: linear-gradient(195deg, #66bb6a, #43a047);
+
+        }
+        
+    }
+    
+}

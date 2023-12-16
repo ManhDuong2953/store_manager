@@ -1,0 +1,291 @@
+.nav-main {
+    height: 80px;
+    width: 100vw;
+    background-color: beige;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    .nav-container {
+        height: inherit;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+
+        .left-header {
+            flex: 2;
+        }
+
+        .search-input {
+            flex: 3 1;
+            height: 60%;
+            background-color: white;
+            border: 1px solid silver;
+            border-radius: 4px;
+
+            #search-form {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                display: flex;
+
+
+                .search-input_container {
+                    flex: 6;
+
+
+                    input#search-controller {
+                        padding: 3px 10px;
+                        border-right: 1px solid black;
+                        outline: none;
+                        border: none;
+                        width: 100%;
+                        height: 100%;
+                        background: transparent;
+                    }
+
+
+
+
+                    ul.recomment-search {
+                        display: none;
+                        font-size: 15px;
+                        position: relative;
+                        z-index: 10;
+                        background: white;
+                        border-top: 1px solid rgba(0, 0, 0, 0.4196078431);
+                        padding: 10px;
+                        text-align: center;
+                        box-shadow: 3px 12px 9px rgb(0 0 0 / 30%);
+
+                        li.search-item {
+                            color: rgba(0, 0, 0, 0.7);
+                            padding: 5px 10px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 5px 0;
+                            font-size: 13px;
+
+                            i {
+                                color: rgba(0, 0, 0, 0.4196078431);
+                            }
+                        }
+
+                        li.search-item:hover {
+                            color: rgb(212, 129, 5);
+
+                            i {
+                                color: rgb(212, 129, 5);
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    height: 100%;
+                    position: relative;
+                }
+
+                button::before {
+                    content: "";
+                    position: absolute;
+                    height: 70%;
+                    width: 1px;
+                    top: 6px;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    left: 0;
+                }
+
+
+                button:hover {
+                    cursor: pointer;
+                    background-color: bisque;
+                    color: chocolate;
+                }
+            }
+        }
+
+        .right-header {
+            flex: 2;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .cart-shop,
+            .notice {
+                position: relative;
+            }
+
+            i {
+                font-size: x-large;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+
+            i:hover {
+               color: chocolate;
+                border-radius: 10px;
+            }
+
+            .notice {
+                .notice-box {
+                    display: none;
+                    right: 0;
+                    top: 50px;
+                    background-color: antiquewhite;
+                    color: #845d5d;
+                    width: 450px;
+                    height: auto;
+                    padding: 0 10px 15px;
+                    position: absolute;
+                    font-size: 15px;
+                    border: 6px solid #13a7c4;
+                    box-shadow: 7px 7px 15px #00000045;
+                    z-index: 10;
+
+                    h3 {
+                        color: rgb(20, 131, 211);
+                        padding: 10px 0 10px 10px;
+                    }
+
+                    ul {
+                        height: 300px;
+                        overflow-y: scroll;
+
+                        li {
+                            background-color: #5fffa5;
+                            display: flex;
+                            align-items: center;
+                            width: inherit;
+                            padding: 5px;
+                            margin: 2px 0;
+                            border: 1px solid rgba(119, 241, 136, 0.7);
+
+                            img {
+                                width: 50px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .notice-box.active {
+                    display: block;
+                }
+            }
+
+
+        }
+
+        .login-button {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            border-left: 1px solid black;
+
+            span {
+                justify-content: space-evenly;
+
+                i {
+                    font-size: 30px;
+                    padding: 10px;
+                    cursor: pointer;
+
+                }
+
+
+                i:hover {
+                    background: #5fffa5;
+                    border-radius: 10px;
+                }
+
+                span.img-avt {
+                    position: relative;
+                    cursor: pointer;
+
+                    img.avthumbnail {
+                        width: 45px;
+                        height: 45px;
+                        object-fit: cover;
+                        border-radius: 50px;
+                        border: 3px solid rgb(255 0 0 / 47%);
+
+                    }
+
+
+                    ul {
+                        display: none;
+                        position: absolute;
+                        z-index: 10;
+                        top: 57px;
+                        left: 21px;
+                        width: max-content;
+                        background-color: beige;
+                        border: 1px solid #0029ff;
+                        border-radius: 10px;
+                        box-shadow: 5px 3px 16px #00000070;
+
+                        li {
+                            cursor: pointer;
+                            line-height: 41px;
+                            padding: 5px 20px 5px 25px;
+
+                            i {
+                                font-size: inherit;
+                                padding: 0;
+                                margin-right: 8px;
+                                color: inherit;
+                            }
+                        }
+
+                        li:hover {
+                            background: #5fffa5;
+                            border-radius: 10px;
+                        }
+                    }
+
+                    ul::before {
+                        content: "";
+                        top: -20px;
+                        right: 0;
+                        background-color: transparent;
+                        height: 20px;
+                        width: 100%;
+                        position: absolute;
+                    }
+                }
+
+                span.img-avt:hover{
+                    ul{
+                        display: block;
+                    }
+                }
+            }
+
+
+
+
+
+            button {
+                border: none;
+                background: dodgerblue;
+                padding: 13px 18px;
+                color: white;
+                text-transform: capitalize;
+                font-size: inherit;
+                border-radius: 7px;
+            }
+
+            button:hover {
+                cursor: pointer;
+                background-color: rgb(17, 0, 255);
+                color: antiquewhite;
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+span {
+  width: -webkit-fill-available;
+  display: flex;
+  align-items: center;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  /* background-color: rgb(28, 30, 33); */
+  background-color: white;
+}
+
+img.logo {
+  width: 45px;
+}
+
+strong {
+  margin: 0 2px;
+}
+ul {
+  padding: 0;
+}
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.container-app {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+.context-app{
+  margin: 50px auto 100px;
+  min-height: 100vh;
+}
+
+.label {
+  position: absolute;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  top: 0;
+  background-color: red;
+  color: white;
+  right: 3px;
+  font-weight: 600;
+  text-align: center;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+*::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
+}

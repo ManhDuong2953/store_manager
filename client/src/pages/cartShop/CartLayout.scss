@@ -1,0 +1,245 @@
+.cart-main {
+    display: flex;
+    flex-direction: column;
+
+    .cart-title {
+        background: #3d54e8;
+        padding: 0 20px;
+        font-size: 27px;
+        font-weight: 700;
+        color: #ffffff;
+        text-transform: uppercase;
+        line-height: 55px;
+        border-left: 17px solid #00efff;
+        margin-left: -17px;
+    }
+
+    ul.cart-container {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0;
+    }
+}
+
+.analyst {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    font-size: 20px;
+    background-color: antiquewhite;
+    border-top: 4px solid blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    transition: all 1s ease-in-out;
+
+    .analyst-container {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding: 0 20px;
+
+        .icon-dropdown {
+            cursor: pointer;
+            position: absolute;
+            top: -27px;
+            background-color: antiquewhite;
+            padding: 2px 10px 6px;
+            border-top: 1px solid blueviolet;
+            border-left: 1px solid blueviolet;
+            border-right: 1px solid blueviolet;
+        }
+
+
+        p {
+            margin-bottom: 16px;
+
+            strong {
+                margin-left: 2px;
+                color: red;
+            }
+        }
+
+        .action-analyst {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            width: inherit;
+
+            i {
+                color: red;
+                cursor: pointer;
+                font-size: 35px;
+                margin-right: 10px;
+                padding: 10px;
+                border-right: 1px solid black;
+            }
+
+            i:hover {
+                background-color: yellowgreen;
+            }
+
+            button {
+                background: red;
+                width: 30%;
+                font-size: 30px;
+                color: white;
+                border: 2px solid red;
+                padding: 10px 20px;
+            }
+
+        }
+    }
+}
+
+// Define variables
+$primary-color: #007bff;
+$secondary-color: #ccc;
+$text-color: #ffffff;
+$total-amount-color: #dd4a4a;
+
+.bill-init--main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+
+    .container-bill-init {
+        margin: auto;
+        width: 800 !important;
+        height: fit-content !important;
+        padding: 30px;
+        border: 1px solid $secondary-color;
+        background-color: #29a17f;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        position: relative;
+
+        p,
+        h3 {
+            display: flex;
+            color: $text-color;
+        }
+
+        strong {
+            min-width: 100px;
+        }
+
+        span {
+            width: auto;
+        }
+
+        .product-info {
+            flex: 1;
+            text-align: center;
+
+            .product-image {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .product-name {
+                margin: 0;
+                font-size: 24px;
+                color: $text-color;
+            }
+
+            .product-details {
+                text-align: left;
+
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                    color: #ffffff;
+                }
+
+                span {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .customer-info {
+            flex: 1;
+            padding-left: 30px;
+
+            h3 {
+                margin-top: 0;
+                font-size: 20px;
+                color: $text-color;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            label {
+                font-size: 16px;
+                margin-top: 10px;
+                color: $text-color;
+            }
+
+            input,
+            button {
+                padding: 8px;
+                font-size: 16px;
+                border: 1px solid $secondary-color;
+                border-radius: 5px;
+                margin-bottom: 15px;
+            }
+
+            .total-amount {
+                color: $total-amount-color;
+                font-weight: bold;
+            }
+
+            button {
+                cursor: pointer;
+                background-color: $primary-color;
+                color: #fff;
+                border: none;
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
+                }
+
+            }
+
+            .fa-crown {
+                font-size: 26px;
+
+                span {
+                    bottom: 1px;
+                }
+            }
+
+        }
+
+        .btn-close-bill--init {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+
+            i {
+                font-size: 24px;
+                color: red;
+            }
+            i:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.fa-crown {
+  /* Hiệu ứng ánh kim bóng sáng */
+  position: relative;
+  margin-left: 15px;
+}
+
+.fa-crown::before {
+
+  text-shadow: 0 0 black;
+
+}
+
+
+/* Định dạng cho mức rank */
+.fa-crown span {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40%;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+
+}
+
+/* Định dạng cho mức đồng */
+.fa-crown.no-rank {
+  color: black;
+  /* Màu bạc - Silver */
+}
+
+.fa-crown.bronze {
+  color: #cd7f32;
+  /* Màu đồng - Dark Goldenrod */
+}
+
+.fa-crown.silver {
+  color: #e5e4e2;
+  /* Màu bạch kim - Platinum */
+}
+
+/* Định dạng cho mức vàng */
+.fa-crown.gold {
+  color: #ffd700;
+  /* Màu vàng - Gold */
+}
+
+/* Định dạng cho mức bạch kim */
+
+/* Định dạng cho mức kim cương */
+.fa-crown.diamond {
+  color: #0c8de4;
+  /* Màu kim cương - Sapphire Blue */
+}

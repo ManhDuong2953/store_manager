@@ -1,0 +1,228 @@
+.my-profile-container {
+    width: -webkit-fill-available;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    box-shadow: 0px 6px 18px #00000073;
+
+    i.fa-solid.fa-circle-left {
+        font-size: 35px;
+        color: bisque;
+        top: 10px;
+        position: absolute;
+        left: 10px;
+    }
+
+
+
+    .text-secondary {
+        color: #2C313C;
+    }
+
+    .text-info {
+        color: #17A2B8;
+    }
+
+    .text-danger {
+        color: #E56672;
+    }
+
+    .text-primary {
+        color: #007BFF;
+    }
+
+    .header-container {
+        height: 150px;
+        width: 100%;
+        filter: brightness(0.4);
+        background: url("https://photo-cms-viettimes.zadn.vn/666x374/Uploaded/2023/zdjwpvrwq/2023_01_18/nhieu-nghe-si-dam-don-kien-cong-nghe-ve-tranh-ai-1-4660.png") top center / cover no-repeat;
+    }
+
+
+    .content-profile {
+        position: absolute;
+        top: 50px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100% - 50px);
+
+        .content-profile__main {
+            display: flex;
+
+            .quick-info {
+                flex: 1 1;
+                padding: 20px;
+                color: rgb(16, 71, 119);
+                font-size: 16px;
+
+                h4 {
+                    margin-bottom: 4px;
+                }
+
+
+
+                ul.list-group {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 30px 5px;
+
+                    li.list-group-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 18px;
+                        padding: 8px 0;
+                        border-top: 1px solid black;
+
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                            border: none;
+                        }
+
+                        h6 {
+                            display: flex;
+                            align-items: center;
+                            font-size: 14px;
+
+                            svg,
+                            i.fa-solid::before {
+                                margin-right: 5px;
+                                font-size: 21px;
+                                width: 24px;
+                                display: block;
+                            }
+
+
+                        }
+
+                        span {
+                            font-size: 15px;
+                        }
+
+                    }
+                }
+
+
+
+            }
+
+
+
+
+            .detail-info {
+                flex: 2;
+                margin-top: 100px;
+                padding: 10px 15px;
+                width: 100%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: left;
+                color: #2C313C;
+
+                h2 {
+                    font-size: 20px;
+                    margin: 10px 0 0;
+                    text-transform: uppercase;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+
+
+                    .action-admin {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+
+                        a {
+                            button {
+                                font-size: 14px !important;
+                                border: 1px solid rgb(255, 255, 255);
+                                border-radius: 10px;
+                                padding: 10px 15px;
+                                margin-left: 21px;
+                                font-size: 18px;
+                                cursor: pointer;
+                                color: aliceblue;
+                                background-color: #00527d;
+
+
+
+                                i {
+                                    margin-left: 10px;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                button {
+                                    color: yellow;
+                                    background-color: red;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .employee-info {
+                    padding: 20px;
+
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-bottom: 10px;
+                    }
+
+                    th,
+                    td {
+                        padding: 10px;
+                        text-align: left;
+                        border: 1px solid #513f3f;
+                        color: #2C313C;
+                    }
+
+                    th {
+                        background-color: bisque;
+                    }
+
+
+                    .employee-info th:first-child,
+                    .employee-info td:first-child {
+                        width: 40%;
+                    }
+
+
+
+
+                }
+
+                .info-2 {
+                    background-color: chartreuse;
+                }
+            }
+        }
+
+
+        .introduce-container {
+            width: 80%;
+            padding: 20px 10px 50px;
+            background: url(https://demoda.vn/wp-content/uploads/2022/03/background-giay.jpg);
+            margin: 50px auto;
+
+            h2 {
+                padding: 30px 0 0;
+                text-align: center;
+            }
+
+            p.introduce {
+
+
+                p.content-intro {
+                    font-size: 16px;
+                    padding: 20px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+}

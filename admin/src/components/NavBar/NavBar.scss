@@ -1,0 +1,104 @@
+.navbar-container {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    bottom: 15px;
+    width: 275px;
+    font-size: 14px;
+    background: linear-gradient(to bottom, #454546, rgb(65, 65, 72));
+    padding: 10px 20px;
+
+    .header-navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        padding: 10px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            /* Điều chỉnh chiều dài gradient */
+            height: 1px;
+            /* Điều chỉnh độ dày của đường border */
+            background: linear-gradient(to left, transparent, #ffffff, transparent);
+            /* Gradient màu */
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .img-logo-header {
+            width: 25px
+        }
+
+        .title-header-navbar {
+            color: white;
+        }
+    }
+
+    .content-navbar {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 88%;
+        // background-color: red;
+
+        ul.list-item-navbar {
+            color: white;
+            cursor: pointer;
+
+            h4 {
+                color: #fff;
+                margin: 0px 0;
+                padding: 10px 0;
+                text-transform: uppercase;
+                border-bottom: 1px solid white;
+            }
+
+
+            li.items-navbar {
+                display: flex;
+                padding: 15px 10px;
+                border-radius: 5px;
+                color: #fff;
+
+                &:hover {
+                    background-color: #545459;
+                }
+
+                &:active {
+                    background: linear-gradient(195deg, #ec407a, #d81b60);
+                }
+
+                &.logout {
+                    font-weight: bolder;
+                    background: red;
+                    font-size: 16px;
+                }
+
+                svg {
+                    margin-left: 10px;
+                    font-size: 18px;
+                }
+
+                p {
+                    margin-left: 15px;
+                }
+            }
+        }
+
+
+        .items-navbar.active {
+            background: linear-gradient(195deg, #ec407a, #d81b60);
+        }
+    }
+
+}

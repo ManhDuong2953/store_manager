@@ -1,0 +1,16 @@
+#App_main {
+    display: flex;
+
+    .router_component {
+        min-height: 100vh;
+        margin-left: calc(18% + 15px);
+        padding: 15px;
+        // border-radius: 15px;
+        width: -webkit-fill-available;
+    }
+
+    div.tag-fake {
+        margin-left: -18%;
+    }
+
+}

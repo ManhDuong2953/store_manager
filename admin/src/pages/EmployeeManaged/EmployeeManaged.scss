@@ -1,0 +1,209 @@
+.container-employee {
+    h1 {
+        padding: 12px 0;
+       color: #024064;
+    }
+
+    .form-container {
+        .btn-event-product {
+            display: flex;
+            width: max-content;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+
+            i{
+                font-size: x-large;
+                background: repeating-radial-gradient(black, transparent 100px);
+                padding: 10px;
+                height: max-content;
+                margin: 0 16px;
+                border-radius: 20px;
+                flex: 1;
+                min-width: 53px;
+                cursor: pointer;
+            }
+
+
+            i:hover {
+                background-color: #62ff0d;
+            }
+
+            button {
+                padding: 5px 30px;
+                margin: 30px;
+            }
+
+            .add_empl {
+                display: flex;
+                transform: translateY(-120%);
+                transition: all 0.5s ease-in-out;
+                width: 100%;
+                flex: 30;
+                align-items: center;
+
+
+                input,
+                option,
+                select {
+                    border: none;
+                    outline: none;
+                    font-size: 15px;
+                    height: 40px;
+                    margin: 0 10px;
+                    padding: 0 10px;
+                    cursor: pointer;
+                }
+
+                input[type="submit"] {
+                    margin: 20px 0;
+                    background-color: #024064;
+                    color: beige;
+                    border:2px solid #e9e9e9;
+                }
+
+                input[type="submit"]:hover {
+                    background-color: #640202;
+                    transform: scale(0.95);
+                    transition: all .4s ease-in-out;
+                }
+
+                &.active {
+                    transform: translateY(0%);
+                }
+            }
+        }
+    }
+
+    .table {
+
+        margin: 40px 0;
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        display: table;
+        border: 1px solid black;
+
+        @media screen and (max-width: 580px) {
+            display: block;
+        }
+
+
+        .row {
+            display: table-row;
+            background: #f6f6f6;
+            border: 1px solid #000000a1;
+            &:nth-of-type(odd) {
+                background: #e9e9e9;
+            }
+
+            &.header {
+                font-weight: 900;
+                color: #ffffff;
+                background: #ea6153;
+            }
+
+            &.green {
+                background: #27ae60;
+            }
+
+            &.blue {
+                background: #2980b9;
+            }
+            a{
+                color: #2980b9;
+                font-weight: 700;
+            }
+            a:hover {
+                color: #ea6153;
+            }
+
+            @media screen and (max-width: 580px) {
+                padding: 14px 0 7px;
+                display: block;
+
+                &.header {
+                    padding: 0;
+                    height: 6px;
+
+                    .cell {
+                        display: none;
+                    }
+                }
+
+                .cell {
+                    margin-bottom: 10px;
+
+                    &:before {
+                        margin-bottom: 3px;
+                        content: attr(data-title);
+                        min-width: 98px;
+                        font-size: 10px;
+                        line-height: 10px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        color: #969696;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .cell {
+            padding: 20px 12px;
+            display: table-cell;
+            text-align: left;
+        }
+
+
+    }
+
+
+    .form-left {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+        display: flex;
+
+        .input-form-product-out {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            flex: 3;
+            border: 1px solid red;
+
+            input {
+                height: 100%;
+                flex: 2;
+                border: none;
+                outline: none;
+                font-size: 15px;
+            }
+        }
+
+        input[type="submit"] {
+            flex: 1;
+            background-color: #041335;
+            color: white !important;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #640202;
+            color: beige;
+            transform: scale(0.95);
+            transition: all .4s ease-in-out;
+        }
+
+    }
+
+    .form-create-product-out {
+       
+        color: rgb(255, 255, 255);
+
+        h1 {
+            padding-top: 20px;
+        }
+    }
+}

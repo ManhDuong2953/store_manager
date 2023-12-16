@@ -1,0 +1,29 @@
+
+.text-editor--main{
+    .quill {
+        padding: 0 20px;
+    font-size: 18px;
+        .ql-container,
+        .ql-editor,
+        .ql-toolbar {
+            background-color: white;
+        }
+    
+        .ql-editor {
+            min-height: 300px;
+        }
+    
+        img, video{
+            max-width: 400px;
+            max-height: 400px;
+        }
+    }
+    button.success {
+        padding: 10px 40px;
+        font-weight: 500;
+        background: springgreen;
+        margin: 10px 0 50px;
+        border: 1px solid blue;
+    }
+    
+}

@@ -1,0 +1,45 @@
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+
+    .list-new-film {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0 -10px;
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black !important;
+        }
+    }
+}
+
+
+.button-slider {
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(126, 107, 107);
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 0;
+    background-color: transparent;
+    height: inherit;
+}
+
+.button-slider:hover {
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    color: aliceblue;
+}
+
+button.next {
+    right: 0;
+}
+
+button.prev {
+    left: 0;
+}

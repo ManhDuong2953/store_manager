@@ -1,0 +1,97 @@
+/* Thiết lập biến chung */
+$primary-color: #00d0ff;
+$secondary-color: #ddd;
+$font-family: Arial, sans-serif;
+
+header {
+    background-color: #ee00ae;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+
+    h1 {
+        font-size: 32px;
+    }
+}
+
+main {
+    padding: 20px;
+
+    h5 {
+        font-size: large;
+        padding: 50px 0 20px;
+        color: currentcolor;
+    }
+
+    i.fa-crown {
+        font-size: 30px;
+
+        span {
+            bottom: -1px;
+            left: 61%;
+        }
+    }
+}
+
+section.rank {
+    margin-bottom: 30px;
+    border: 1px solid $secondary-color;
+    padding: 20px;
+
+    &:nth-child(1) {
+        background-color: lighten($secondary-color, 20%);
+    }
+
+    &:nth-child(2) {
+        background-color: lighten($secondary-color, 20%);
+    }
+
+    &:nth-child(3) {
+        background-color: lighten($secondary-color, 20%);
+    }
+
+    &:nth-child(4) {
+        background-color: lighten($secondary-color, 20%);
+    }
+
+    &:nth-child(5) {
+        background-color: lighten($secondary-color, 20%);
+    }
+
+
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Thiết lập phần responsive (đáp ứng) cho giao diện */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    section.rank {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

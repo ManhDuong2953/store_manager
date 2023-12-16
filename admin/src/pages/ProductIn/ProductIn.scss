@@ -1,0 +1,214 @@
+.container-product-in {
+  .btn-event-product-in {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ccc;
+
+    button {
+      border: none;
+      outline: none;
+      padding: 20px 30px;
+      margin-bottom: 10px;
+    }
+
+    .btn-create-invoice-in {
+      background-color: pink;
+    }
+
+    .btn-create-invoice-in.active,
+    .btn-supplier.active {
+      border: 1px solid red;
+    }
+
+    .btn-supplier {
+      background-color: rgb(56, 107, 218);
+      color: #fff;
+      margin-left: 15px;
+    }
+  }
+
+  .form-create-product-in {
+    background-color: rgb(231, 201, 206);
+
+    h1 {
+      padding: 20px;
+    }
+
+    .form-container {
+      .btn-event-product {
+        display: flex;
+        // padding: 20px;
+        justify-content: flex-start;
+        button {
+          padding: 5px 30px;
+          margin: 10px 20px;
+        }
+      }
+      form {
+        
+        .form-product-in {
+          display: flex;
+        }
+        .form-left {
+          flex: 2;
+          padding: 20px;
+          border-right: 1px solid #ccc;
+          // display: flex;
+          // justify-content: flex-start;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 30px;
+          .input-form-product {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            label {
+              text-align: left;
+              flex: 1;
+            }
+            input {
+              flex: 2;
+              height: 80%;
+              border: none;
+              outline: none;
+              font-size: 15px;
+            }
+          }
+        }
+  
+        .form-right {
+          flex: 1;
+          padding: 20px;
+  
+          .preview {
+            background-image: linear-gradient(45deg, #3575d1, #7d4ed4);
+            border: 2px dashed #fff;
+            width: 100%;
+            height: 350px;
+            color: white;
+            font-size: 22px;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+          }
+  
+          .preview i {
+            font-size: 60px;
+            margin-bottom: 20px;
+          }
+  
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  
+    
+  }
+
+  .form-supplier {
+    background-color:rgb(56, 107, 218);
+    color: #fff;
+    .form-product-in {
+      display: flex;
+    }
+    h1 {
+      padding: 20px;
+    }
+
+    .form-container {
+      form {
+        .form-left {
+          flex: 2;
+          padding: 20px;
+          border-right: 1px solid #ccc;
+          // display: flex;
+          // justify-content: flex-start;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 10px;
+
+          .input-form-product {
+            display: flex;
+            align-items: center;
+            height: 40px;
+
+            label {
+              text-align: left;
+              flex: 1;
+            }
+
+            input {
+              flex: 2;
+              height: 80%;
+              border: none;
+              outline: none;
+              font-size: 15px;
+            }
+          }
+        }
+
+        .form-right {
+          flex: 1;
+          padding: 20px;
+
+          .preview {
+            background-image: linear-gradient(45deg, #3575d1, #7d4ed4);
+            border: 2px dashed #fff;
+            width: 100%;
+            height: 350px;
+            color: white;
+            font-size: 22px;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+          }
+
+          .preview i {
+            font-size: 60px;
+            margin-bottom: 20px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    .btn-event-product {
+      display: flex;
+      justify-content: flex-start;
+
+      button {
+        padding: 15px 30px;
+        margin: 20px;
+      }
+    }
+  }
+}

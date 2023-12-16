@@ -1,0 +1,220 @@
+// Define variables
+$primary-color: #ff5e14;
+$secondary-color: #2E2E2E;
+$text-color: #fff;
+
+// Footer Section
+.footer-section {
+    padding: 20px 0;
+    background-color: #2E2E2E;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .footer-cta {
+        border-bottom: 1px solid #373636;
+    }
+
+    .single-cta {
+        i {
+            color: $primary-color;
+            font-size: 30px;
+            float: left;
+            margin-top: 8px;
+        }
+
+        .cta-text {
+            padding-left: 15px;
+            display: inline-block;
+
+            h4 {
+                color: $text-color;
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 2px;
+            }
+
+            span {
+                color: #757575;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .pt-5,
+    .pb-5 {
+        padding: 20px 0 !important;
+    }
+
+    .footer-content {
+        max-width: fit-content;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-pattern img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 220px;
+        background-size: cover;
+        background-position: 100% 100%;
+    }
+
+    .footer-logo {
+        margin-bottom: 30px;
+
+        img {
+            max-width: 100px;
+        }
+    }
+
+    .footer-text {
+        p {
+            margin-bottom: 14px;
+            font-size: 14px;
+            color: #7e7e7e;
+            line-height: 28px;
+        }
+    }
+
+    .footer-social-icon {
+        span {
+            color: $text-color;
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: $text-color;
+            font-size: 16px;
+            margin-right: 15px;
+
+            i {
+                height: 40px;
+                width: 40px;
+                text-align: center;
+                line-height: 38px;
+                border-radius: 50%;
+            }
+        }
+
+        .facebook-bg {
+            background: #3B5998;
+        }
+
+        .twitter-bg {
+            background: #55ACEE;
+        }
+
+        .google-bg {
+            background: #DD4B39;
+        }
+    }
+
+    .footer-widget {
+        .footer-widget-heading {
+            h3 {
+                color: $text-color;
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 40px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -15px;
+                    height: 2px;
+                    width: 50px;
+                    background: $primary-color;
+                }
+            }
+        }
+
+        ul li {
+            display: inline-block;
+            width: 50%;
+            margin-bottom: 12px;
+
+            a {
+                &:hover {
+                    color: $primary-color;
+                }
+
+                color: #878787;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .subscribe-form {
+        position: relative;
+        overflow: hidden;
+
+        input {
+            width: 100%;
+            padding: 14px 28px;
+            background: $secondary-color;
+            border: 1px solid $secondary-color;
+            color: $text-color;
+        }
+
+        button {
+            position: absolute;
+            right: 0;
+            background: $primary-color;
+            padding: 13px 20px;
+            border: 1px solid $primary-color;
+            top: 0;
+
+            i {
+                color: $text-color;
+                font-size: 22px;
+                transform: rotate(-6deg);
+            }
+        }
+    }
+}
+
+// Footer Menu
+.footer-menu {
+    li {
+        display: inline-block;
+        margin-left: 20px;
+
+        &:hover {
+            a {
+                color: $primary-color;
+            }
+        }
+
+        a {
+            font-size: 14px;
+            color: #878787;
+        }
+    }
+}
+
+// Copyright Area
+.copyright-area {
+    padding: 10px 0;
+
+    p {
+        margin: 0;
+        font-size: 14px;
+        color: #878787;
+        text-align: initial;
+
+
+        a {
+            color: $primary-color;
+        }
+    }
+}
