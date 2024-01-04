@@ -1,17 +1,9 @@
 import pool from "../../../configs/database/database.config"
 export default class Media {
     constructor(mediaInfo) {
-        this.image_data = mediaInfo.url || null;
-        this.fieldname = mediaInfo.fieldname || null;
-        this.originalname = mediaInfo.originalname || null;
-        this.encoding = mediaInfo.encoding || null;
-        this.mimetype = mediaInfo.mimetype || null;
-        this.destination = mediaInfo.destination || null;
-        this.filename = mediaInfo.filename || null;
-        this.path = mediaInfo.path || null;
-        this.size = mediaInfo.size || null;
-        this.time = new Date();
+        this.id_media = mediaInfo.id_media || null;
         this.id_link = mediaInfo.id_link || null;
+        this.image_link = mediaInfo.url || null;
         this.classify = mediaInfo.classify || null;
     }
 
@@ -30,16 +22,7 @@ export default class Media {
             // Thêm bản ghi mới
             const insertSql = 'INSERT INTO images SET ?';
             const dataMedia = {
-                image_data: this.image_data,
-                fieldname: this.fieldname,
-                originalname: this.originalname,
-                encoding: this.encoding,
-                mimetype: this.mimetype,
-                destination: this.destination,
-                filename: this.filename,
-                path: this.path,
-                size: this.size,
-                time: this.time,
+                image_link: this.image_link,
                 id_link: this.id_link,
                 classify: this.classify
             };

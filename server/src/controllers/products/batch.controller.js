@@ -1,4 +1,4 @@
-import Product from '../../models/products/product.model';
+import {Product} from '../../models/products/product.model'
 
 // Lấy tất cả sản phẩm
 export async function getAllProducts(req, res) {
@@ -7,30 +7,27 @@ export async function getAllProducts(req, res) {
         if (!data || data.length === 0) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
-        return res.status(200).json(data);
+        return res.send(data);
     } catch (error) {
-        console.error("Error in getAllProducts:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }
-
 // Thêm sản phẩm
 export async function postProduct(req, res) {
     try {
         const productData = req.body;
         const product = new Product(productData);
-
+        console.log("dataPr: ",product);
         if (await product.addProduct()) {
-            return res.status(200).json({ message: 'Thêm sản phẩm thành công' });
+            res.status(200).json({ message: 'Thêm sản phẩm thành công' });
         } else {
-            return res.status(400).json({ message: 'Error creating' });
+            res.status(404).json({ message: 'Error creating' });
         }
+        console.log(product);
     } catch (error) {
-        console.error("Error in postProduct:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }
-
 // Lấy sản phẩm bằng từ khóa
 export async function getProductByKeyword(req, res) {
     const keyword = req.params.keyword;
@@ -39,9 +36,8 @@ export async function getProductByKeyword(req, res) {
         if (!data || data.length === 0) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
-        return res.status(200).json(data);
+        return res.send(data);
     } catch (error) {
-        console.error("Error in getProductByKeyword:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }
@@ -54,9 +50,8 @@ export async function getProductById(req, res) {
         if (!data) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
-        return res.status(200).json(data);
+        return res.send(data);
     } catch (error) {
-        console.error("Error in getProductById:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }
@@ -69,9 +64,8 @@ export async function updateProductById(req, res) {
     try {
         const product = new Product(productData);
         const updatedProduct = await product.update(productId);
-        return res.status(200).json(updatedProduct);
+        return res.json(updatedProduct);
     } catch (error) {
-        console.error("Error in updateProductById:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }
@@ -82,9 +76,8 @@ export async function deleteProductById(req, res) {
 
     try {
         await Product.deleteProductById(productId);
-        return res.status(200).json({ message: 'Xóa sản phẩm thành công' });
+        return res.json('Xóa sản phẩm thành công');
     } catch (error) {
-        console.error("Error in deleteProductById:", error);
         return res.status(500).json({ message: 'Lỗi server' });
     }
 }

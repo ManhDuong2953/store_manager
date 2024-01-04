@@ -1,12 +1,13 @@
 import { useCallback, useState, useEffect } from 'react';
-import getDataForm from '../../components/handleForm/handleForm';
+import getDataForm from '../../utils/handleForm/handleForm';
 import { API_GET_ALL_EMPLOYEE, API_POST_EMPLOYEE, API_FILTER_EMPLOYEE } from '../../configs/API';
 import './EmployeeManaged.scss';
 import { Link } from 'react-router-dom';
-import {  getAge } from '../../components/formatDate/formatDate';
-import { calculateDaysWorked } from '../../components/formatDate/formatDate';
-
+import { getAge } from '../../utils/formatDate/formatDate';
+import { calculateDaysWorked } from '../../utils/formatDate/formatDate';
+import getToken from '../../utils/getToken/getToken';
 function EmployeeManaged() {
+
     const [listEmployee, setListEmployee] = useState([]); // set list of employees
     const [employeeData, setEmployeeData] = useState({}) // get new employee data
     const [keywordValue, setKeywordValue] = useState('') // set new keyword
@@ -22,13 +23,19 @@ function EmployeeManaged() {
 
     // send data to server
     const sendData = useCallback(async (data) => {
-        await fetch(API_POST_EMPLOYEE, {
+        console.log(data);
+        const response = await fetch(API_POST_EMPLOYEE, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`
+            },
             body: JSON.stringify(data)
         })
-            .then(() => console.log("Thành công"))
-            .catch((err) => console.log(err))
+        
+        if(response.status === 403) {
+            alert("Bạn không đủ thẩm quyền. Hãy liên hệ với nhà quản lý để thực hiện tác vụ!")
+        }    
     }, [])
 
     //handle submit event
@@ -38,26 +45,40 @@ function EmployeeManaged() {
         setEmployeeData({}); // Reset the employee data after sending
     }
 
-    // get list of employees
+
+
+
     useEffect(() => {
-        fetch(API_GET_ALL_EMPLOYEE)
+        const res= fetch(API_GET_ALL_EMPLOYEE, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                setListEmployee(data); // Set the employee data
+                setListEmployee(data.data); // Set the employee data
             })
             .catch(error => {
                 console.error('Fetch error:', error);
             });
+           
     }, [employeeData]);
 
     // nút xử lí tìm nhân viên
     const handleBtnSearchSubmit = useCallback(() => {
         const keyword = getDataForm(".form-left").keyword_filter;
-        fetch(API_FILTER_EMPLOYEE + keyword)
+        fetch(API_FILTER_EMPLOYEE + keyword, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
-                setListEmployee(data);
+                setListEmployee(data.data);
             })
             .catch(error => {
                 console.error('Fetch error:', error);
@@ -134,7 +155,7 @@ function EmployeeManaged() {
                 </div>
 
                 {
-                    listEmployee.length >0  && listEmployee.map((employee, index) => (
+                    listEmployee.length > 0 && listEmployee.map((employee, index) => (
                         <div className="row" key={index}>
 
                             <div className="cell" data-title="top">
@@ -162,7 +183,7 @@ function EmployeeManaged() {
                                 {employee.passwords}
                             </div>
                             <div className="cell" data-title="monthofwork">
-                                {calculateDaysWorked(employee.date_in) } ngày
+                                {calculateDaysWorked(employee.date_in)} ngày
                             </div>
                         </div>
 

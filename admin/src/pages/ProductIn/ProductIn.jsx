@@ -30,7 +30,6 @@ function ProductIn() {
   const valueDescription = useCallback((e) => {
     setValueTextEditor(e)
   },[])
-  console.log(valueTextEditor);
   return (
     <>
 

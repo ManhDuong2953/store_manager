@@ -15,7 +15,8 @@ const API_GET_PRODUCT_BY_ID = API_ADDRESS + "/product/detail/"
 
 
 
-const API_LOGIN_USER = API_ADDRESS + "/login"
+const API_LOGIN_USER = API_ADDRESS + "/auth/login"
+const API_LOGOUT_USER = API_ADDRESS + "/auth/logout"
 
 
 
@@ -39,5 +40,6 @@ export {
     API_FILTER_PRODUCT,
     API_GET_PRODUCT_BY_ID,
 
+    API_LOGOUT_USER
 
 }

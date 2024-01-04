@@ -19,7 +19,7 @@ export class User {
       const [result] = await pool.query(query);
       return result;
     } catch (error) {
-      console.log("Error in findUserById:", error);
+      console.error("Error in findAllUser:", error);
       return null;
     }
   }
@@ -30,12 +30,10 @@ export class User {
       const [result] = await pool.query(query, [idUser]);
       return result;
     } catch (error) {
-      console.log("Error in findUserById:", error);
+      console.error("Error in findUserById:", error);
       return null;
     }
   }
-
-
 
   async save() {
     try {
@@ -56,8 +54,11 @@ export class User {
         this.name_account,
         this.passwords
       ]);
+
+      return true; // Trả về true nếu thêm thành công
     } catch (error) {
-      console.log("Error in save:", error);
+      console.error("Error in save:", error);
+      return false; // Trả về false nếu có lỗi khi thêm
     }
   }
 
@@ -70,7 +71,7 @@ export class User {
           dob = ?,
           gender = ?,
           address = ?,
-          email = ?
+          email = ?,
           access_right = ?,
           name_account = ?
         WHERE id_user = ?
@@ -86,9 +87,11 @@ export class User {
         this.name_account,
         id
       ]);
-      console.log("User updated successfully!");
+
+      return true; // Trả về true nếu cập nhật thành công
     } catch (error) {
-      console.log("Error in update:", error);
+      console.error("Error in update:", error);
+      return false; // Trả về false nếu có lỗi khi cập nhật
     }
   }
 
@@ -96,9 +99,11 @@ export class User {
     try {
       const query = "DELETE FROM users WHERE id_user = ?";
       await pool.execute(query, [idUser]);
-      console.log("User deleted successfully!");
+
+      return true; // Trả về true nếu xóa thành công
     } catch (error) {
-      console.log("Error in deleteUserById:", error);
+      console.error("Error in deleteUserById:", error);
+      return false; // Trả về false nếu có lỗi khi xóa
     }
   }
 }

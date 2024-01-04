@@ -1,12 +1,13 @@
 .navbar-container {
     position: fixed;
-    left: 15px;
-    top: 15px;
+    left: 0;
+    top: 0;
     bottom: 15px;
-    width: 275px;
+    height: 100vh;
+    width: 19vw;
     font-size: 14px;
     background: linear-gradient(to bottom, #454546, rgb(65, 65, 72));
-    padding: 10px 20px;
+    padding: 10px;
 
     .header-navbar {
         width: 100%;
@@ -66,7 +67,7 @@
 
             li.items-navbar {
                 display: flex;
-                padding: 15px 10px;
+                padding: 10px 0;
                 border-radius: 5px;
                 color: #fff;
 
@@ -82,6 +83,8 @@
                     font-weight: bolder;
                     background: red;
                     font-size: 16px;
+
+                    margin-top: 10px;
                 }
 
                 svg {

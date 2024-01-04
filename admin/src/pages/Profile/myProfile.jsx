@@ -1,32 +1,71 @@
 // import React from "react";
 import "./myProfile.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ThumbnailInfor from "./ThumbnailInfor/ThumbnailInfor";
 import { API_GET_EMPLOYEE_BY_ID, API_DELETE_EMPLOYEE } from '../../configs/API';
 import { useCallback, useEffect, useState } from "react";
-import { formatDate, getAge } from "../../components/formatDate/formatDate";
+import { formatDate, getAge } from "../../utils/formatDate/formatDate";
+import AuthenticationClient from "../../utils/Auth/Auth";
+import getToken from "../../utils/getToken/getToken";
 
 
 function MyProfile() {
-    const { id } = useParams()
-    const [dataEmployee, setDataEmployee] = useState([]); // set list of employees
+    const { id } = useParams();
+    const [idAuth, setIdAuth] = useState();
+    const navigate = useNavigate();
+
     useEffect(() => {
-        fetch(API_GET_EMPLOYEE_BY_ID + id)
-            .then(response => response.json())
-            .then(data => {
-                setDataEmployee(data[0]); // Set the employee data
+        if (id) {
+            setIdAuth(id);
+        } else {
+            AuthenticationClient()
+                .then(data => {
+                    setIdAuth(data.data.id_user);
+                })
+                .catch(error => {
+                    // Xử lý lỗi
+                    console.error('Authentication failed:', error);
+                });
+        }
+    }, [id]);
+
+    const [dataEmployee, setDataEmployee] = useState([]); // set list of employees
+
+    useEffect(() => {
+        if (idAuth) {
+            fetch(API_GET_EMPLOYEE_BY_ID + idAuth, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getToken()}`
+                }
             })
-            .catch(error => {
-                console.error('Fetch error:', error);
+                .then(response => response.json())
+                .then(data => {
+                    setDataEmployee(data.data[0]); // Set the employee data
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+    }, [idAuth]);
+
+    const handleDeleteEmployee = useCallback( async() => {
+        if (idAuth) {
+            const response = await fetch(API_DELETE_EMPLOYEE + idAuth, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getToken()}`
+                }
             });
-    }, []);
-
-
-    const handleDeleteEmployee = useCallback(() => {
-        fetch(API_DELETE_EMPLOYEE + id, {
-            method: 'DELETE'
-        })
-    }, [id])
+            if (response.status !== 200) {
+                alert("Bạn không đủ thẩm quyền. Hãy liên hệ với nhà quản lý để thực hiện tác vụ!")
+            } else if(response.status === 200) {
+                navigate("/admin/managedEmployee");
+            }
+        }
+    }, [idAuth]);
 
     return (
 
@@ -61,7 +100,7 @@ function MyProfile() {
                                 <Link to={`/admin/profile/edit/${id}`}>
                                     <button>Sửa thông tin<i className="fa-solid fa-pen-to-square"></i></button>
                                 </Link>
-                                <Link to="/admin/managedEmployee"><button onClick={handleDeleteEmployee}>Sa thải<i className="fa-solid fa-scissors"></i></button></Link>
+                                <a href="#"><button onClick={handleDeleteEmployee}>Sa thải<i className="fa-solid fa-scissors"></i></button></a>
                             </span>
                         </h2>
 

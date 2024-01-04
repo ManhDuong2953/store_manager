@@ -1,4 +1,4 @@
-import "./productManagement.scss";
+import "./ProductManagement.scss";
 import React, { useState } from "react";
 
 function ProductManagement() {

@@ -1,26 +1,29 @@
 import pool from "../../../configs/database/database.config";
 import moment from "moment";
 import { User } from "./user.model";
+
 export class Employee extends User {
-  constructor(
-    userData
-  ) {
+  constructor(userData) {
     super(userData);
+
     this.literacy = userData.literacy || null;
-    this.date_in = userData.date_in || moment().format('YYYY-MM-DD HH:mm:ss');
+    this.date_in =
+      userData.date_in && userData.date_in.slice(-1) === "Z"
+        ? userData.date_in.slice(0, -1)
+        : moment().format("YYYY-MM-DD HH:mm:ss").slice(0, -1);
     this.salary = userData.salary || null;
     this.link_social = userData.link_social || null;
     this.introduce = userData.introduce || null;
   }
 
-
-  static async findAllUser() {
+  static async findAllEmployees() {
     try {
-      const query = "SELECT users.*, employees.* FROM users INNER JOIN employees ON users.id_user = employees.id_employee WHERE  access_right  = 'Employee'";
+      const query =
+        "SELECT users.*, employees.* FROM users INNER JOIN employees ON users.id_user = employees.id_employee WHERE  access_right  = 'Employee'";
       const [result] = await pool.query(query);
       return result;
     } catch (error) {
-      console.log("Error in findUserById:", error);
+      console.error("Error in findAllEmployees:", error);
       return null;
     }
   }
@@ -35,7 +38,7 @@ export class Employee extends User {
       const [result] = await pool.query(query);
       return result;
     } catch (error) {
-      console.log("Error in findUserBySomeThing:", error);
+      console.error("Error in filterEmployees:", error);
       return null;
     }
   }
@@ -81,20 +84,20 @@ export class Employee extends User {
         id
       ]);
 
-      console.log("User updated successfully!");
+      console.log("Employee updated successfully!");
     } catch (error) {
-      console.log("Error in update:", error.message);
+      console.error("Error in update:", error.message);
     }
   }
 
-
   static async findEmployeeById(idUser) {
     try {
-      const query = "SELECT users.*, employees.*, MAX(images.image_data) AS avatar_img FROM users INNER JOIN employees ON users.id_user = employees.id_employee LEFT JOIN images ON users.id_user = images.id_link WHERE users.id_user = ? GROUP BY users.id_user; ";
+      const query =
+        "SELECT users.*, employees.*, MAX(images.image_link) AS avatar_img FROM users INNER JOIN employees ON users.id_user = employees.id_employee LEFT JOIN images ON users.id_user = images.id_link WHERE users.id_user = ? GROUP BY users.id_user; ";
       const [result] = await pool.query(query, [idUser]);
       return result;
     } catch (error) {
-      console.log("Error in findUserById:", error);
+      console.error("Error in findEmployeeById:", error);
       return null;
     }
   }

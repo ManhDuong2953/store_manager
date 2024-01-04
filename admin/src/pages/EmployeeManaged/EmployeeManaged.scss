@@ -7,7 +7,6 @@
     .form-container {
         .btn-event-product {
             display: flex;
-            width: max-content;
             justify-content: flex-start;
             align-items: center;
             overflow: hidden;
@@ -39,6 +38,7 @@
                 transform: translateY(-120%);
                 transition: all 0.5s ease-in-out;
                 width: 100%;
+                flex-wrap: wrap;
                 flex: 30;
                 align-items: center;
 

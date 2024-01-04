@@ -334,7 +334,7 @@ function TopRanking() {
                         <td>1000000</td>
                         <td>10000000</td>
                         <td>1000</td>
-                    </tr> <tr>
+                    </tr><tr>
                         <td>001</td>
                         <td>IT1</td>
                         <td>Tiêu Công Cường</td>
@@ -343,7 +343,7 @@ function TopRanking() {
                         <td>1000000</td>
                         <td>10000000</td>
                         <td>1000</td>
-                    </tr> <tr>
+                    </tr><tr>
                         <td>001</td>
                         <td>IT1</td>
                         <td>Tiêu Công Cường</td>
@@ -352,7 +352,7 @@ function TopRanking() {
                         <td>1000000</td>
                         <td>10000000</td>
                         <td>1000</td>
-                    </tr> <tr>
+                    </tr><tr>
                         <td>001</td>
                         <td>IT1</td>
                         <td>Tiêu Công Cường</td>
@@ -361,7 +361,7 @@ function TopRanking() {
                         <td>1000000</td>
                         <td>10000000</td>
                         <td>1000</td>
-                    </tr> <tr>
+                    </tr><tr>
                         <td>001</td>
                         <td>IT1</td>
                         <td>Tiêu Công Cường</td>

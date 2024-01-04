@@ -1,4 +1,3 @@
-create database store_manager;
 
 use store_manager;
 
@@ -9,7 +8,7 @@ create table users (
     name_account varchar(50) not null UNIQUE,
     passwords varchar(20) not null,
     phone_number varchar(20),
-    dob date,
+    dob DATETIME ,
     gender varchar(25),
     address varchar(255),
     email varchar(255),
@@ -21,7 +20,7 @@ create table users (
 create table employees (
 	id_employee int primary key,
     literacy varchar(100),
-    date_in date,
+    date_in DATETIME DEFAULT CURRENT_TIMESTAMP;
     link_social varchar(255),
     salary decimal(15,2)  default 0,
     introduce longtext,
@@ -157,16 +156,7 @@ create table order_list (
 -- Bảng media
 create table `images` (
   `id_media` INT PRIMARY KEY AUTO_INCREMENT,
-  `image_data` TEXT,
-  `fieldname` VARCHAR(255),
-  `originalname` VARCHAR(255),
-  `encoding` VARCHAR(255),
-  `mimetype` VARCHAR(255),
-  `destination` VARCHAR(255),
-  `filename` VARCHAR(255),
-  `path` VARCHAR(255),
-  `size` INT,
-  `time` TIMESTAMP,
+  `image_link` TEXT,
   `classify` varchar(20),
   `id_link` INT -- liên kết với id người dùng hoặc sản phẩm (sản phẩm có thể chứa nhiều media)
 );
@@ -187,12 +177,10 @@ create table token_login(
 	id int primary key auto_increment,
 	id_user int not null,
 	refresh_token varchar(255) not null,
-	expiration_date text,
 	foreign key (id_user) references users(id_user)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
-
 
 
 

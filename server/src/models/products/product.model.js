@@ -1,38 +1,39 @@
 import pool from "../../../configs/database/database.config";
-export class Product {
-    constructor(idProduct, idBatch, nameProduct, priceProduct, sale, descProduct) {
-        this.idProduct = idProduct;
-        this.idBatch = idBatch;
-        this.nameProduct = nameProduct;
-        this.priceProduct = priceProduct;
-        this.sale = sale;
-        this.descProduct = descProduct;
+export default class Product {
+    constructor({ idProduct, idBatch, nameProduct, priceProduct, sale, descProduct }) {
+        this.idProduct = idProduct || null;
+        this.idBatch = idBatch || null;
+        this.nameProduct = nameProduct || null;
+        this.priceProduct = priceProduct || null;
+        this.sale = sale || null;
+        this.descProduct = descProduct || null;
     }
 
-    // Lấy tất cả sản phẩm
     static async findAllProduct() {
         try {
-            const query = "SELECT * FROM product";
+            const query = "SELECT * FROM products";
             const [result] = await pool.query(query);
-            return result
+            return result.length > 0 ? result : null;
         } catch (error) {
             console.log("Error in findAllProduct:", error);
             return null;
         }
     }
-     async findProductById(idProduct) {
+
+    async findProductById(idProduct) {
         try {
             const query = "SELECT * FROM products WHERE idProduct = ?";
             const [result] = await pool.query(query, [idProduct]);
-            return result;
+            return result.length > 0 ? result[0] : null;
         } catch (error) {
             console.log("Error in findProductById: ", error);
             return null;
         }
     }
-     async addProduct() {
+
+    async addProduct() {
         try {
-            const query = `INSERT INTO products (idBatch, nameProduct, priceProduct, sale, descProduct) VALUES (?,?,?,?,?)`
+            const query = `INSERT INTO products (id_batch, name_product, price_product, sale, desc_product) VALUES (?,?,?,?,?)`;
             await pool.execute(query, [
                 this.idBatch,
                 this.nameProduct,
@@ -40,63 +41,46 @@ export class Product {
                 this.sale,
                 this.descProduct
             ]);
+            return true;
         } catch (error) {
             console.log("Error in addProduct: ", error);
+            return false;
         }
     }
+
     async updateProduct() {
         try {
-        const query = `UPDATE products SET
-        idBatch = ?,
-        nameProduct = ?,
-        priceProduct = ?,
-        sale = ?,
-        descProduct = ?
-        WHERE idProduct = ?
-        `;
-            await pool.execute(query, [
+            const query = `UPDATE products SET
+            idBatch = ?,
+            nameProduct = ?,
+            priceProduct = ?,
+            sale = ?,
+            descProduct = ?
+            WHERE idProduct = ?
+          `;
+            const [result] = await pool.execute(query, [
                 this.idBatch,
                 this.nameProduct,
                 this.priceProduct,
                 this.sale,
-                this.descProduct
+                this.descProduct,
+                this.idProduct
             ]);
-            console.log("Product updated successfully!");
-
+            return result.affectedRows > 0;
         } catch (error) {
-           console.log("Error updating products: ", error); 
+            console.log("Error updating products: ", error);
+            return false;
         }
     }
 
-     async deleteProductById(productId) {
+    async deleteProductById(productId) {
         try {
             const query = "DELETE FROM products WHERE idProduct = ?";
-            await pool.execute(query, [productId]);
-            console.log("Prouct deleted successfully!");
+            const [result] = await pool.execute(query, [productId]);
+            return result.affectedRows > 0;
         } catch (error) {
             console.log("Error deleting products: ", error);
+            return false;
         }
-    }
-}
-export class Batch extends Product {
-    constructor(idBatch, idSupplier, nameBatch, dateManufact,typeProduct, dateExp, remain, sold) {
-        super(idBatch)
-        this.idSupplier = idSupplier;
-        this.nameBatch = nameBatch;
-        this.dateManufact = dateManufact;
-        this.typeProduct = typeProduct;
-        this.dateExp = dateExp;
-        this.remain = remain;
-        this.sold = sold;
-    }
-
-}   
-
-export class Supplier {
-    contructer(idSupplier, nameSupplier, address, phoneNumber) {
-        this.idSupplier = idSupplier;
-        this.nameSupplier = nameSupplier;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
     }
 }
