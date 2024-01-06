@@ -6,7 +6,7 @@ const getDataForm = (parentElement) => {
 
     dataRadio && (data[dataRadio.name] = dataRadio.value);
     if (dataMedia[0]&&dataMedia[0].files[0]) {
-        data["mediaAdmin"] = dataMedia[0].files[0];
+        data["linkMedia"] = dataMedia[0].files[0];
       }
     dataSubmit.forEach((element) => {
         let name = element.name;

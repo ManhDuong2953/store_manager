@@ -22,7 +22,7 @@ export function Role(req, res, next, ...requiredRoles) {
         if (status !== 'success') {
             throw new Error("Invalid data structure");
         }
-        const userRole = data.access_right.toLowerCase();
+        const userRole = data.role.toLowerCase();
         if (requiredRoles.includes(userRole)) {
             next();
         } else {

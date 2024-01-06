@@ -1,5 +1,5 @@
 import "./App.css";
-import RouterConfig from "./routers/routerRoot";
+import RouterConfig from "./Routers/RouterRoot";
 function App() {
   return (
     <div className="App">

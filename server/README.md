@@ -8,19 +8,23 @@ create table users (
     name_account varchar(50) not null UNIQUE,
     passwords varchar(20) not null,
     phone_number varchar(20),
-    dob DATETIME ,
+    dob date,
     gender varchar(25),
     address varchar(255),
     email varchar(255),
-    access_right varchar(100) default "Customer"
+    role varchar(100) default "Customer",
+    avatar_link varchar(1000) default "https://png.pngtree.com/png-vector/20220709/ourlarge/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
 );
+
+INSERT INTO users (name_user, name_account, passwords, role) 
+VALUES ('Dương Văn Mạnh', 'manhme62', '123', 'Admin');
 
 
 -- Bảng nhân sự 
 create table employees (
 	id_employee int primary key,
     literacy varchar(100),
-    date_in DATETIME DEFAULT CURRENT_TIMESTAMP;
+    date_in datetime default current_timestamp,
     link_social varchar(255),
     salary decimal(15,2)  default 0,
     introduce longtext,
@@ -29,6 +33,17 @@ create table employees (
     ON UPDATE CASCADE
 );
 
+-- Bảng khách hàng
+create table customers (
+	id_customer int primary key,
+    rank_customer varchar(20),
+    money decimal(15,2) not null default 0,
+    foreign key (id_customer) references users(id_user) 
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+     
+    
 
 
 -- Tạo trigger để tự động thêm dữ liệu vào bảng employeess khi thêm dữ liệu vào bảng userss
@@ -50,7 +65,8 @@ create table suppliers (
     id_supplier varchar(20) primary key,
     name_supplier varchar(255) not null,
     address varchar(255) not null,
-    phone_number varchar(20) not null
+    phone_number varchar(20) not null,
+	avatar_link varchar(1000) default "https://danhgiaphanmem.vn/wp-content/uploads/2020/10/reseller.jpg"
 );
 
     
@@ -58,7 +74,7 @@ create table suppliers (
 create table batches(
 	id_batch varchar(20) primary key,
     id_supplier varchar(20) not null,
-    name_batch varchar(5) not null,
+    name_batch varchar(500) not null,
     type_product varchar(50) not null,
     date_manufact datetime not null,
     date_exp datetime not null,
@@ -72,7 +88,7 @@ create table batches(
 
 -- Bảng hàng hóa
  create table products (
-	 id_product varchar(20) primary key,
+	 id_product int primary key auto_increment,
      id_batch varchar(20) not null,
      name_product varchar(50) not null,
      price_product decimal(10,2) not null,
@@ -83,30 +99,25 @@ create table batches(
 	 ON UPDATE CASCADE
 );
  
-
-     
-     
-     
--- Bảng khách hàng
-create table customers (
-	id_customer int primary key,
-    rank_customer varchar(20),
-    money decimal(15,2) not null default 0,
-    foreign key (id_customer) references users(id_user) 
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
+ 
+ -- Bảng media
+create table imagesProduct (
+  id_image INT PRIMARY KEY AUTO_INCREMENT,
+  image_link varchar(1000),
+  id_product INT
 );
-     
-     
+
+ 
+ 
 -- Bảng hóa đơn nhập 
 create table bill_in(
 	id_bill int primary key auto_increment,
     id_employee int not null,
     id_supplier varchar(20) not null,
 	id_batch varchar(20) not null,
-    date_input datetime,
+    date_create datetime default current_timestamp,
 	quantity int default 1,
-    status_van varchar(50),
+    status_van varchar(50) default "Chờ xác nhận",
     foreign key (id_employee) references employees(id_employee)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
@@ -126,10 +137,10 @@ create table bill_out(
 	id_bill int primary key auto_increment,
     id_employee int not null,
     id_customer int not null,
-    id_product varchar(20),
+    id_product int,
     quantity int not null default 1,
-    date_output datetime,
-    status_van varchar(50), 
+    date_create datetime default current_timestamp,
+    status_van varchar(50) default "Chờ xác nhận",
 	foreign key (id_employee) references employees(id_employee)
     ON DELETE CASCADE
     ON UPDATE CASCADE, 
@@ -153,13 +164,6 @@ create table order_list (
 );
 
 
--- Bảng media
-create table `images` (
-  `id_media` INT PRIMARY KEY AUTO_INCREMENT,
-  `image_link` TEXT,
-  `classify` varchar(20),
-  `id_link` INT -- liên kết với id người dùng hoặc sản phẩm (sản phẩm có thể chứa nhiều media)
-);
 
 -- Bảng thông báo
 create table notice (

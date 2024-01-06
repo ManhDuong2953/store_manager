@@ -1,5 +1,5 @@
 import { API_LOGIN_USER } from "../../configs/API";
-import getToken from "../getToken/getToken";
+import getToken from "../GetToken/GetToken";
 
 // Hàm để xác thực và trả về dữ liệu
 export default function AuthenticationClient() {

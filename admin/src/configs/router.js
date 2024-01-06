@@ -1,14 +1,15 @@
-import DashBoardPage from "../pages/DashBoard/DashBoardPages";
-import ProfileEditPages from "../pages/Profile/ProfileEdit/myProfileEdit";
-import MyProfile from "../pages/Profile/myProfile";
-import SignupPage from "../pages/signupPage/signupPage";
-import LoginPage from "../pages/loginPages/loginPage";
-import TopRanking from "../pages/TopRanking/TopRanking";
 import AnalystEmployee from "../components/AnalystEmployee/AnalystEmployee";
+import DashBoardPage from "../pages/DashBoard/DashBoardPages";
+import EmployeeManaged from "../pages/EmployeeManage/EmployeeManage";
+import LoginPage from "../pages/LoginPage/LoginPage";
 import ProductIn from "../pages/ProductIn/ProductIn";
+import ProductManagement from "../pages/ProductManage/ProductManage";
 import ProductOut from "../pages/ProductOut/ProductOut";
-import EmployeeManaged from "../pages/EmployeeManaged/EmployeeManaged";
-import ProductManagement from "../pages/ProductManagement/ProductManagement";
+import ProfileEditPages from "../pages/Profile/ProfileEdit/MyProfileEdit";
+import MyProfile from "../pages/Profile/MyProfile";
+import TopRanking from "../pages/TopRanking/TopRanking";
+import SignupPage from "../pages/SignupPage/SignupPage";
+
 
 const router = [
   {

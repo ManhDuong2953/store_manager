@@ -9,7 +9,8 @@ import logowhite from "../../assets/logo/logowhite.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.scss";
 import { API_LOGOUT_USER } from "../../configs/API";
-import getToken from "../../utils/getToken/getToken";
+import getToken from "../../utils/GetToken/GetToken";
+
 
 function NavBar() {
   const pathnameLocation = useLocation().pathname;
@@ -30,7 +31,7 @@ function NavBar() {
       await fetch(API_LOGOUT_USER, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`
+          'Authorization': `Bearer ${getToken}`
       },
         method: 'POST',
         credentials: 'include',

@@ -6,8 +6,8 @@ function ThumbnailInfor({ data }) {
       <div className="info_simple">
         <img
           src={
-            data && data.avatar_img
-              ? data.avatar_img
+            data && data.avatar_link
+              ? data.avatar_link
               : "https://inkythuatso.com/uploads/thumbnails/800/2023/03/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg"
           }
           alt="avatar"

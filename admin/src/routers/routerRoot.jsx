@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
 import router from "../configs/router";
-import "./routerRoot.scss";
+import "./RouterRoot.scss";
 
 const RouterConfig = () => {
   return (

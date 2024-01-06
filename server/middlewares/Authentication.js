@@ -1,5 +1,5 @@
 import { checkRefreshToken, createAccessToken, isExpiredToken } from "./handleToken";
-import { checkLogin } from "../src/models/login/Login.model";
+import { checkLogin } from "../src/models/Login/login.model";
 const jwt = require("jsonwebtoken");
 require("dotenv").config()
 

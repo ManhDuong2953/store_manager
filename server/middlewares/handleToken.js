@@ -59,11 +59,11 @@ export async function postRefreshToken(idUser, refreshToken) {
 
 
 export async function createAccessToken(data) {
-    if (data && data.id_user && data.name_account && data.access_right) {
+    if (data && data.id_user && data.name_account && data.role) {
         const payload = {
             id_user: data.id_user,
             name_account: data.name_account,
-            access_right: data.access_right
+            role: data.role
         }
         const accessToken = jwt.sign(payload, process.env.SECRETKEYACCESSTOKEN, {
             expiresIn: '4d',

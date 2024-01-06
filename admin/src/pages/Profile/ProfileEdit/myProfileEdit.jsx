@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { API_GET_EMPLOYEE_BY_ID, API_UPDATE_EMPLOYEE } from "../../../configs/API";
-import "./myProfileEdit.scss"
+import "./MyProfileEdit.scss"
 import { useParams } from "react-router-dom";
 import TextEditor from "../../../components/TextEditor/TextEditor";
 import { useNavigate } from 'react-router-dom';
-import getDataForm from "../../../utils/handleForm/handleForm";
-import { formatDate } from "../../../utils/formatDate/formatDate";
-import getToken from "../../../utils/getToken/getToken";
+import getToken from "../../../utils/GetToken/GetToken";
+import getDataForm from "../../../utils/HandleForm/HandleForm";
+import { formatDate } from "../../../utils/FormatDate/FormatDate";
+
 
 const ProfileEditPages = () => {
   const { id } = useParams()
@@ -24,7 +25,7 @@ const ProfileEditPages = () => {
     })
       .then(response => response.json())
       .then(data => {
-        setDataEmployee(data.data[0]); // Set the employee data
+        setDataEmployee(data[0]); // Set the employee data
       })
       .catch(error => {
         console.error('Fetch error:', error);

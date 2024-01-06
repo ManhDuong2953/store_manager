@@ -1,13 +1,25 @@
-import "./ProductOut.scss";
+import "./ProductManage.scss";
+import React, { useState } from "react";
 
+function ProductManagement() {
+  const [previewImgSrc, setPreviewImgSrc] = useState("");
 
-function ProductOut() {
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const imgSrc = URL.createObjectURL(file);
+    setPreviewImgSrc(imgSrc);
+  };
+
   return (
     <>
-      
-      <div className="container-product-out">
-        <div className="form-create-product-out">
-          <h1>Đơn bán của bạn</h1>
+     
+      <div className="container-product-managerment">
+
+        <div className="form-create-product-out product-managerment">
+          <h1>Quản lí hàng hóa</h1>
           <div className="form-container">
             <form>
               <div className="form-left">
@@ -141,4 +153,4 @@ function ProductOut() {
   );
 }
 
-export default ProductOut;
+export default ProductManagement;

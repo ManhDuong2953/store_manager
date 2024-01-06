@@ -1,12 +1,13 @@
 // import React from "react";
-import "./myProfile.scss";
+import "./MyProfile.scss";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ThumbnailInfor from "./ThumbnailInfor/ThumbnailInfor";
 import { API_GET_EMPLOYEE_BY_ID, API_DELETE_EMPLOYEE } from '../../configs/API';
 import { useCallback, useEffect, useState } from "react";
-import { formatDate, getAge } from "../../utils/formatDate/formatDate";
 import AuthenticationClient from "../../utils/Auth/Auth";
-import getToken from "../../utils/getToken/getToken";
+import getToken from "../../utils/GetToken/GetToken";
+import { formatDate, getAge } from "../../utils/FormatDate/FormatDate";
+
 
 
 function MyProfile() {
@@ -42,7 +43,7 @@ function MyProfile() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    setDataEmployee(data.data[0]); // Set the employee data
+                    setDataEmployee(data[0]); // Set the employee data
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);

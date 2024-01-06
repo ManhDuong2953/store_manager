@@ -120,16 +120,19 @@
   }
 
   .form-supplier {
-    background-color:rgb(56, 107, 218);
     color: #fff;
     .form-product-in {
       display: flex;
     }
     h1 {
       padding: 20px;
+    background-color:rgb(56, 107, 218);
+
     }
 
     .form-container {
+    background-color:rgb(56, 107, 218);
+
       form {
         .form-left {
           flex: 2;
@@ -197,6 +200,72 @@
             left: 0;
             z-index: 1;
           }
+        }
+      }
+    }
+
+    .list-supplier-container {
+      h2 {
+        margin: 20px 0;
+        color: red;
+      }
+      .table-wrap {
+        color: #333;
+        font-size: 14px;
+      }
+      /* ********************** End table wrap ********************** */
+      
+      /* ********************** Table common ********************** */
+      table {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px 0 rgb(0 0 0 / 0.15), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      
+        .pcs::after {
+          content: " pcs";
+        }
+        .cur::before {
+          content: "$";
+        }
+        .per::after {
+          content: "%";
+        }
+      
+        thead {
+          background-color: #4f98ffb9;
+          th {
+            text-align: left;
+            padding-block: 8px;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #ececec;
+          }
+        }
+      
+        tbody {
+          // background-color: #41ecf28f;
+
+           tr:not(:last-child) td {
+            border-bottom: 1px solid #ececec;
+          }
+        }
+      
+        th,
+        td {
+          padding: 16px;
+          border: 1px solid #ccc;
+        }
+        
+        td.img{
+          img{
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+          }
+        }
+      
+        td {
+          vertical-align: middle;
         }
       }
     }
